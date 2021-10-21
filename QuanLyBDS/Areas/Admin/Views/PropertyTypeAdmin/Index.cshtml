@@ -1,0 +1,47 @@
+﻿@model IEnumerable<QuanLyBDS.Models.Property_Type>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>VIEW LIST OF PROPERTY TYPE</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Property_Type_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Property_Amount)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
