@@ -1,0 +1,92 @@
+﻿@model IEnumerable<QuanLyBDS.Models.Property>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>VIEW LIST OF PROPERTY</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="card-body">
+    <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Property ID</th>
+                <th>Property Name</th>
+                <th>Description</th>
+                <th>Address</th>
+                <th>Area</th>
+                <th>Bed Room</th>
+                <th>Bath Room</th>
+                <th>Price</th>
+                <th>Installment Rate</th>
+                <th>Avatar</th>
+                <th>Album</th>
+                <th>District Name</th>
+                <th>Property Status Name</th>
+                <th>Property Type Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Property_Code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Property_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Area)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Bed_Room)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Bath_Room)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Installment_Rate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Avatar)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Album)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.District.District_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Property_Status.Property_Status_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Property_Type.Property_Type_Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

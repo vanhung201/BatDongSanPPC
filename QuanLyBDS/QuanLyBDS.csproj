@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\PropertyAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\PropertyTypeAdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -262,6 +263,9 @@
     <Content Include="Areas\Admin\Views\PropertyTypeAdmin\Create.cshtml" />
     <Content Include="Areas\Admin\Views\PropertyTypeAdmin\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\PropertyTypeAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\PropertyAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PropertyAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\PropertyAdmin\Delete.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Chart.min.js" />
     <Content Include="Scripts\dashboard.js" />
