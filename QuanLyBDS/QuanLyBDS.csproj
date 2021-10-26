@@ -266,6 +266,7 @@
     <Content Include="Areas\Admin\Views\PropertyAdmin\Index.cshtml" />
     <Content Include="Areas\Admin\Views\PropertyAdmin\Create.cshtml" />
     <Content Include="Areas\Admin\Views\PropertyAdmin\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\PropertyAdmin\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Chart.min.js" />
     <Content Include="Scripts\dashboard.js" />

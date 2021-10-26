@@ -34,7 +34,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Property_Type_ID, "Property_Type_ID", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownList("Property_Type_ID", (IEnumerable<SelectListItem>)ViewBag.PropertyTypeList, htmlAttributes: new { @class = "form-control" })
+            @Html.DropDownList("Property_Type_ID", new SelectList(ViewBag.PropertyTypeList, "ID", "PROPERTY_TYPE_NAME"))
             @Html.ValidationMessageFor(model => model.Property_Type_ID, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -50,7 +50,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.District_ID, "District_ID", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownList("District_ID", (IEnumerable<SelectListItem>)ViewBag.DistrictList, htmlAttributes: new { @class = "form-control" })
+            @Html.DropDownList("District_ID", new SelectList(ViewBag.DistrictList, "ID", "DISTRICT_NAME")) 
             @Html.ValidationMessageFor(model => model.District_ID, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -98,7 +98,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Installment_Rate, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Installment_Rate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Installment_Rate, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.InstallmentRate, @disabled = "disabled" } })
             @Html.ValidationMessageFor(model => model.Installment_Rate, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -122,7 +122,7 @@
     <div class="form-group">
             @Html.LabelFor(model => model.Property_Status_ID, "Property_Status_ID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Property_Status_ID", (IEnumerable<SelectListItem>)ViewBag.PropertyStatusList, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("Property_Status_ID", new SelectList(ViewBag.PropertyStatusList, "ID", "PROPERTY_STATUS_NAME"))
                 @Html.ValidationMessageFor(model => model.Property_Status_ID, "", new { @class = "text-danger" })
             </div>
         </div>
