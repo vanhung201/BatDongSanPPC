@@ -11,7 +11,8 @@ namespace QuanLyBDS.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Property
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,8 +22,10 @@ namespace QuanLyBDS.Models
             this.Installment_Contract = new HashSet<Installment_Contract>();
             this.Property_Service = new HashSet<Property_Service>();
         }
-    
+        
+        
         public int ID { get; set; }
+  
         public string Property_Code { get; set; }
         public string Property_Name { get; set; }
         public int Property_Type_ID { get; set; }
