@@ -100,7 +100,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Installment_Rate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Installment_Rate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Installment_Rate, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.InstallmentRate, @disabled = "disabled" } })
                 @Html.ValidationMessageFor(model => model.Installment_Rate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -108,7 +108,10 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Avatar, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Avatar, new { htmlAttributes = new { @class = "form-control" } })
+       @*         @Html.EditorFor(model => model.Avatar, new { htmlAttributes = new { @class = "form-control" } })*@
+                <img src="~/Images/@Model.Avatar") class="mb-2" width="250px" height="180px"/>
+                <br />
+                <input type="file" name="imgfile" id="imgfile" class="btn btn-info" accept="image/gif, image/jpeg, image/png"/>
                 @Html.ValidationMessageFor(model => model.Avatar, "", new { @class = "text-danger" })
             </div>
         </div>
