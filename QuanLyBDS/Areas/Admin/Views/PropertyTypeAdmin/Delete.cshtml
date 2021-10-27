@@ -7,16 +7,16 @@
 
 <h2>DELETE PROPERTY TYPE</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Are you sure you want to delete this property type?</h3>
 <div>
     <hr />
  
     @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+    @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Delete" class="btn btn-danger mr-4" />
+            <button class="btn btn-warning">@Html.ActionLink("Back to List", "Index")</button>
         </div>
     }
 </div>

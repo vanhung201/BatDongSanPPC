@@ -8,7 +8,7 @@
 <h2>VIEW LIST OF PROPERTY TYPE</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button class="btn btn-outline-warning">@Html.ActionLink("Create New", "Create")</button>
 </p>
 
     <div class="card-body">
@@ -36,8 +36,8 @@
                         @Html.DisplayFor(modelItem => item.Property_Amount)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                        <button class="btn btn-primary mr-3">@Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "colorbtn" })</button>
+                        <button class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "colorbtn" })</button>
                     </td>
                 </tr>
                 }
