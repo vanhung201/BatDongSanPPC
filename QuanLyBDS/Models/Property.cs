@@ -50,5 +50,10 @@ namespace QuanLyBDS.Models
         public virtual Property_Type Property_Type { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Property_Service> Property_Service { get; set; }
+
+        internal object ToList()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

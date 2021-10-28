@@ -161,19 +161,20 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/Admin/PropertyTypeAdmin" class="nav-link" id="propertyType">
+              
+                                    <a href="/Admin/PropertyTypeAdmin" class="nav-link  @(ViewContext.RouteData.Values["Controller"].ToString() == "PropertyTypeAdmin" ? "active" : "")" id="propertyType">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Property Type</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/Admin/PropertyAdmin" class="nav-link" id="property">
+                                    <a href="/Admin/PropertyAdmin" class="nav-link  @(ViewContext.RouteData.Values["Controller"].ToString() == "PropertyAdmin" ? "active" : "")" id="property">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Property</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/Admin/Account" class="nav-link">
+                                    <a href="/Admin/Account" class="nav-link ">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Account</p>
                                     </a>
@@ -249,10 +250,12 @@
             setTimeout(function () {
                 $("#toastsContainerTopRight").hide();
             }, 3000);
+
         });
 
 
     </script>
+
 
 
 </body>
