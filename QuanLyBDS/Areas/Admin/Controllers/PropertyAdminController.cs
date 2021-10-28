@@ -14,6 +14,7 @@ namespace QuanLyBDS.Areas.Admin.Controllers
         // GET: Admin/Property
         public ActionResult Index()
         {
+
             var properties = model.Properties.ToList();
             return View(properties);
         }
@@ -136,7 +137,8 @@ namespace QuanLyBDS.Areas.Admin.Controllers
         public ActionResult Edit(int id)
         {
             var property = model.Properties.FirstOrDefault(x => x.ID == id);
-
+            String[] dataImage = property.Album == null ? null :property.Album.Split(',');
+            ViewBag.arrIma = dataImage;
             ViewBag.PropertyTypeList = model.Property_Type.OrderByDescending(x => x.ID).ToList();
             ViewBag.DistrictList = model.Districts.OrderByDescending(x => x.ID).ToList();
             ViewBag.PropertyStatusList = model.Property_Status.OrderByDescending(x => x.ID).ToList();
@@ -145,10 +147,29 @@ namespace QuanLyBDS.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(int id, Property property)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, Property property, HttpPostedFileBase imgfile, HttpPostedFileBase[] photos)
         {
             var data = model.Properties.FirstOrDefault(x => x.ID == id);
-            String ava = property.Avatar == null ? data.Avatar : property.Avatar;
+            string bfValue = data.Album;
+            String ava = imgfile == null ? data.Avatar : uploadimage(imgfile);
+            string value = "";
+            if (photos[0] != null)
+            {
+                List<string> files = new List<string>();
+                foreach (var photo in photos)
+                {
+                    photo.SaveAs(Server.MapPath("~/Images/" + photo.FileName));
+                    files.Add(photo.FileName);
+                    value += photo.FileName + ",";
+                }
+                data.Album = value;
+
+            }
+            else
+            {
+                data.Album = bfValue;
+            }
             data.Property_Code = property.Property_Code;
             data.Property_Name = property.Property_Name;
             data.Description = property.Description;
@@ -159,7 +180,6 @@ namespace QuanLyBDS.Areas.Admin.Controllers
             data.Price = property.Price;
             data.Installment_Rate = 7.99;
             data.Avatar = ava;
-            data.Album = property.Album;
             data.District_ID = property.District_ID;
             data.Property_Status_ID = property.Property_Status_ID;
             data.Property_Type_ID = property.Property_Type_ID;
