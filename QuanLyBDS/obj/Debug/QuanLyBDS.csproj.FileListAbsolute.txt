@@ -241,8 +241,8 @@ D:\PropertyPPC\ver2\QuanLyBDS\bin\System.Web.WebPages.Razor.xml
 D:\PropertyPPC\ver2\QuanLyBDS\bin\Newtonsoft.Json.xml
 D:\PropertyPPC\ver2\QuanLyBDS\bin\Antlr3.Runtime.pdb
 D:\PropertyPPC\ver2\QuanLyBDS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\PropertyPPC\ver2\QuanLyBDS\obj\Debug\QuanLyBDS.csprojAssemblyReference.cache
 D:\PropertyPPC\ver2\QuanLyBDS\obj\Debug\QuanLyBDS.csproj.CoreCompileInputs.cache
 D:\PropertyPPC\ver2\QuanLyBDS\obj\Debug\QuanLyBDS.csproj.CopyComplete
 D:\PropertyPPC\ver2\QuanLyBDS\obj\Debug\QuanLyBDS.dll
 D:\PropertyPPC\ver2\QuanLyBDS\obj\Debug\QuanLyBDS.pdb
+D:\PropertyPPC\ver2\QuanLyBDS\obj\Debug\QuanLyBDS.csprojAssemblyReference.cache
