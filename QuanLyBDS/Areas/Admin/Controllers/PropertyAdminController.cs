@@ -49,7 +49,7 @@ namespace QuanLyBDS.Areas.Admin.Controllers
             }
             string path = uploadimage(imgfile);
          
-                data.Property_Code = property.Property_Code;
+                //data.Property_Code = property.Property_Code;
                 data.Property_Name = property.Property_Name;
                 data.Description = property.Description;
                 data.Address = property.Address;
@@ -67,11 +67,6 @@ namespace QuanLyBDS.Areas.Admin.Controllers
                 model.Properties.Add(data);
                 model.SaveChanges();
                 return RedirectToAction("Index");
-
-            
-       
-
-       
         }
 
 
@@ -170,7 +165,7 @@ namespace QuanLyBDS.Areas.Admin.Controllers
             {
                 data.Album = bfValue;
             }
-            data.Property_Code = property.Property_Code;
+            //data.Property_Code = property.Property_Code;
             data.Property_Name = property.Property_Name;
             data.Description = property.Description;
             data.Address = property.Address;
