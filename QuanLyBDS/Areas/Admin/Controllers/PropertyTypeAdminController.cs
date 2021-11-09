@@ -26,14 +26,19 @@ namespace QuanLyBDS.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(Property_Type pt)
         {
-            var ptype = new Property_Type();
-            ptype.Property_Type_Name = pt.Property_Type_Name;
-            ptype.Property_Amount = pt.Property_Amount;
+            if (ModelState.IsValid)
+            {
+                var ptype = new Property_Type();
+                ptype.Property_Type_Name = pt.Property_Type_Name;
+                ptype.Property_Amount = pt.Property_Amount;
 
-            model.Property_Type.Add(pt);
-            model.SaveChanges();
+                model.Property_Type.Add(pt);
+                model.SaveChanges();
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            return View();
+      
         }
 
         public ActionResult Delete(int? id)
@@ -79,13 +84,18 @@ namespace QuanLyBDS.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditConfirmed(int id, Property_Type pt)
         {
-            var data = model.Property_Type.Find(id);
-            data.ID = pt.ID;
-            data.Property_Type_Name = pt.Property_Type_Name;
-            data.Property_Amount = pt.Property_Amount;
-            model.Entry(data).State = System.Data.Entity.EntityState.Modified;
-            model.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                var data = model.Property_Type.Find(id);
+                data.ID = pt.ID;
+                data.Property_Type_Name = pt.Property_Type_Name;
+                data.Property_Amount = pt.Property_Amount;
+                model.Entry(data).State = System.Data.Entity.EntityState.Modified;
+                model.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+
         }
 
     }
