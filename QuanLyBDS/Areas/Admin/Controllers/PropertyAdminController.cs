@@ -25,7 +25,7 @@ namespace QuanLyBDS.Areas.Admin.Controllers
             ViewBag.PropertyTypeList = model.Property_Type.OrderByDescending(x => x.ID).ToList();
             ViewBag.DistrictList = model.Districts.OrderByDescending(x => x.ID).ToList();
             ViewBag.PropertyStatusList = model.Property_Status.OrderByDescending(x => x.ID).ToList();
-            ViewBag.InstallmentRate = "7,99";
+            //ViewBag.InstallmentRate = "7,99";
 
             return View();
         }
@@ -140,10 +140,11 @@ namespace QuanLyBDS.Areas.Admin.Controllers
             var property = model.Properties.FirstOrDefault(x => x.ID == id);
             String[] dataImage = property.Album == null ? null :property.Album.Split(',');
             ViewBag.arrIma = dataImage;
+
             ViewBag.PropertyTypeList = model.Property_Type.OrderByDescending(x => x.ID).ToList();
             ViewBag.DistrictList = model.Districts.OrderByDescending(x => x.ID).ToList();
             ViewBag.PropertyStatusList = model.Property_Status.OrderByDescending(x => x.ID).ToList();
-            ViewBag.InstallmentRate = "7,99";
+            //ViewBag.InstallmentRate = "7,99";
             return View(property);
         }
 
@@ -191,6 +192,7 @@ namespace QuanLyBDS.Areas.Admin.Controllers
                 model.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             ViewBag.PropertyTypeList = model.Property_Type.OrderByDescending(x => x.ID).ToList();
             ViewBag.DistrictList = model.Districts.OrderByDescending(x => x.ID).ToList();
             ViewBag.PropertyStatusList = model.Property_Status.OrderByDescending(x => x.ID).ToList();
@@ -199,62 +201,3 @@ namespace QuanLyBDS.Areas.Admin.Controllers
         }
     }
 }
-
-
-/*
-public partial class Property
-{
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public Property()
-    {
-        this.Full_Contract = new HashSet<Full_Contract>();
-        this.Installment_Contract = new HashSet<Installment_Contract>();
-        this.Property_Service = new HashSet<Property_Service>();
-    }
-
-    public int ID { get; set; }
-    public string Property_Code { get; set; }
-    [Required(ErrorMessage = "Tên bất động sản không được để trống")]
-    [MinLength(5, ErrorMessage = "Chiều dài tối thiểu là 5")]
-    [MaxLength(50, ErrorMessage = "Chiều dài tối đa là 50")]
-    public string Property_Name { get; set; }
-    public int Property_Type_ID { get; set; }
-    [Required(ErrorMessage = "Mô tả không được để trống")]
-    [MinLength(50, ErrorMessage = "Chiều dài tối thiểu là 50")]
-    [MaxLength(200, ErrorMessage = "Chiều dài tối đa là 200")]
-    public string Description { get; set; }
-    public int District_ID { get; set; }
-    [Required(ErrorMessage = "Địa chỉ không được để trống")]
-    public string Address { get; set; }
-    [Required(ErrorMessage = "Diện tích không được để trống")]
-    [Range(50, 200, ErrorMessage = "Diện tích trong khoảng 50-200")]
-    public Nullable<int> Area { get; set; }
-    [Required(ErrorMessage = "Phải nhập số lượng phòng ngủ")]
-    [Range(0, 10, ErrorMessage = "Số lượng phải nhỏ hơn 10")]
-    public Nullable<int> Bed_Room { get; set; }
-    [Required(ErrorMessage = "Phải nhập số lượng phòng tắm")]
-    [Range(0, 10, ErrorMessage = "Số lượng phải nhỏ hơn 10")]
-    public Nullable<int> Bath_Room { get; set; }
-    [Display(Name = "Giá")]
-
-    [Required(ErrorMessage = "Phải điền giá tiền")]
-    [Range(10000000, 10000000000, ErrorMessage = "Giá tiền phải trong khoảng 10.000.000 đến 10.000.000.000")]
-    public Nullable<decimal> Price { get; set; }
-    public Nullable<double> Installment_Rate { get; set; }
-    public int Property_Status_ID { get; set; }
-    [DisplayName("Upload File")]
-    public string Avatar { get; set; }
-    public string Album { get; set; }
-    public HttpPostedFileBase ImageFile { get; set; }
-    public HttpPostedFileBase ImageAlbum { get; set; }
-
-    public virtual District District { get; set; }
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-    public virtual ICollection<Full_Contract> Full_Contract { get; set; }
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-    public virtual ICollection<Installment_Contract> Installment_Contract { get; set; }
-    public virtual Property_Status Property_Status { get; set; }
-    public virtual Property_Type Property_Type { get; set; }
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-    public virtual ICollection<Property_Service> Property_Service { get; set; }
-}*/
