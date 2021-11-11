@@ -129,8 +129,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AuthController.cs" />
     <Compile Include="Areas\Admin\Controllers\PropertyAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\PropertyTypeAdminController.cs" />
+    <Compile Include="Areas\Admin\Middleware\LoginVerification.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -207,6 +209,7 @@
     <Content Include="Content\tempusdominus-bootstrap-4.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Images\avatar5.png" />
+    <Content Include="Images\ppc-background.jpg" />
     <Content Include="Images\ppc0001.jpg" />
     <Content Include="Images\ppc0002.jpg" />
     <Content Include="Images\ppc0003.jpg" />
@@ -267,6 +270,7 @@
     <Content Include="Areas\Admin\Views\PropertyAdmin\Create.cshtml" />
     <Content Include="Areas\Admin\Views\PropertyAdmin\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\PropertyAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Auth\Login.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Chart.min.js" />
     <Content Include="Scripts\dashboard.js" />
