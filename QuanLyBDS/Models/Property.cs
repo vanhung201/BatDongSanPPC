@@ -57,7 +57,7 @@ namespace QuanLyBDS.Models
         [Required(ErrorMessage = " Vui lòng nhập Lãi suất trả góp")]
         [RegularExpression(@"^[0-9]+(\,[0-9]{2})$", ErrorMessage = "Phải nhập số thực với 2 chữ số sau dấu phẩy")]
         public Nullable<double> Installment_Rate { get; set; }
-        [Required(ErrorMessage = "Chọn Hình ảnh đại diện ")]
+        [RegularExpression(@"([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif|.jpeg)$", ErrorMessage = "Vui lòng chọn file hình ảnh")]
         public string Avatar { get; set; }
         public string Album { get; set; }
         public Nullable<int> Property_Status_ID { get; set; }
