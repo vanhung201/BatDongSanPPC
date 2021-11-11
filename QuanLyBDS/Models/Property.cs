@@ -34,33 +34,32 @@ namespace QuanLyBDS.Models
         public Nullable<int> Property_Type_ID { get; set; }
         [Required(ErrorMessage = "Vui lòng nhập Mô tả Bất Động Sản")]
         [Display(Name = "Mô Tả Bất Động Sản")]
-        [StringLength(255,ErrorMessage ="Không được quá 255 kí tự",MinimumLength = 1)]   
+        [StringLength(255, ErrorMessage = "Mô tả bất động sản không quá 255 kí tự")]   
         public string Description { get; set; }
         public Nullable<int> District_ID { get; set; }
         [Required(ErrorMessage = "Địa chỉ không được để trống")]
-        [StringLength(100,ErrorMessage ="Không được quá 100 kí tự",MinimumLength = 1)]
+        [StringLength(100,ErrorMessage = "Địa chỉ Không quá 100 kí tự")]
         public string Address { get; set; }
         [Required(ErrorMessage = "Diện tích không được để trống")]
         [Range(1,10000,ErrorMessage ="Diện tích nằm trong khoảng 1 - 10000(m2) ")]
         public Nullable<int> Area { get; set; }
-        [Required(ErrorMessage = "Vui lòng nhập số lượng Phòng tắm")]
-        [Range(0,5,ErrorMessage ="Phòng ngủ tối đa là 0 - 5 (phòng)")]
+        [Required(ErrorMessage = "Vui lòng nhập số lượng Phòng ngủ")]
+        [Range(0,5,ErrorMessage = "Phòng ngủ nằm trong khoảng 0 - 5 (phòng)")]
         public Nullable<int> Bed_Room { get; set; }
-        [Required(ErrorMessage = "Vui lòng nhập số lượng Phòng tắm")]
-        [Range(1,10,ErrorMessage ="Phòng tắm tối đa là 1 - 10 (Phòng)")]
+        [Required(ErrorMessage = "Vui lòng nhập số lượng phòng tắm")]
+        [Range(1, 10, ErrorMessage = "Số phòng tắm trong khoảng 1 - 10 (Phòng)")]
         public Nullable<int> Bath_Room { get; set; }
         [Required(ErrorMessage = "Vui lòng nhập giá trị Bất động sản")]
         [RegularExpression(@"^[0-9]*$")]
-        [Range(1000,100000000000,ErrorMessage ="Giá bán tối đa từ 1000 (vnd)- 100 tỷ (vnd)")]
+        [Range(1000,100000000000,ErrorMessage ="Giá bán tối đa từ 1000 (vnd) - 100 tỷ (vnd)")]
         public Nullable<decimal> Price { get; set; }
+        [Display(Name = "Lãi suất trả góp")]
+        [Required(ErrorMessage = " Vui lòng nhập Lãi suất trả góp")]
+        [RegularExpression(@"^[0-9]+(\,[0-9]{2})$", ErrorMessage = "Phải nhập số thực với 2 chữ số sau dấu phẩy")]
         public Nullable<double> Installment_Rate { get; set; }
         [Required(ErrorMessage = "Chọn Hình ảnh đại diện ")]
         public string Avatar { get; set; }
-        [Required(ErrorMessage = "Hình ảnh chi tiết")]
- 
         public string Album { get; set; }
-        [Required(ErrorMessage = "Trạng thái bất động sản")]
-   
         public Nullable<int> Property_Status_ID { get; set; }
    
         public virtual District District { get; set; }
