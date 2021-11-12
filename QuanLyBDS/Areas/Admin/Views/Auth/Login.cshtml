@@ -4,99 +4,94 @@
 }
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>PPC ADMIN - LOGIN</title>
-    <link rel="shortcut icon" type="image/png" href="~/Images/PPCLogo-128-128.png">
-    <link href="~/Content/account.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="~/Images/PPCLogo-128-128.png" />
+    <link rel="icon" type="image/png" href="~/LoginTemplate/images/icons/favicon.ico" />
     <!--===============================================================================================-->
-    <link href="~/Content/vendor/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/LoginTemplate/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
-    <link href="~/webfonts/fonts/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/LoginTemplate/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
-    <link href="~/webfonts/fonts/Linearicons-Free-v1.0.0/icon-font.min.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/LoginTemplate/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
     <!--===============================================================================================-->
-    <link href="~/Content/vendor/animate/animate.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/LoginTemplate/vendor/animate/animate.css">
     <!--===============================================================================================-->
-    <link href="~/Content/vendor/css-hamburgers/hamburgers.min.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/LoginTemplate/vendor/css-hamburgers/hamburgers.min.css">
     <!--===============================================================================================-->
-    <link href="~/Content/vendor/select2/select2.min.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/LoginTemplate/vendor/animsition/css/animsition.min.css">
     <!--===============================================================================================-->
-    <link href="~/Content/css/util.css" type="text/css" rel="stylesheet" />
-    <link href="~/Content/css/main.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/LoginTemplate/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginTemplate/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginTemplate/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/LoginTemplate/css/main.css">
     <!--===============================================================================================-->
 </head>
 <body>
-    <!--------account-page--------->
+
     <div class="limiter">
-        <div class="container-login100">
-            <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
-                <form class="login100-form validate-form" action="@Url.Action("Login")" method="POST">
-                    <span class="login100-form-title p-b-55">
-                        PPC Admin Login
-                    </span>
+        <div class="container-login100" style="background-image: url('../../../../LoginTemplate/images/bg-01.jpg');">
+            <div class="wrap-login100 p-t-30 p-b-50">
+                <span class="login100-form-title p-b-41">
+                    PPC Admin Login
+                </span>
+                <form class="login100-form validate-form p-b-33 p-t-5" action="@Url.Action("Login")" method="POST">
 
-                    <div class="wrap-input100 validate-input m-b-16" data-validate="Username is required">
-                        <input class="input100" name="username" type="text" placeholder="Username">
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <span class="lnr lnr-user"></span>
-                        </span>
+                    <div class="wrap-input100 validate-input" data-validate="Enter username">
+                        <input class="input100" type="text" name="username" placeholder="Username">
+                        <span class="focus-input100" data-placeholder="&#xe82a;"></span>
                     </div>
 
-                    <div class="wrap-input100">
-                        @if (Convert.ToBoolean(Session["username-incorrect"]) == true)
-                        {
-                            <div style="text-align:center; margin-top: -15px; margin-bottom: 2px" class="login-error">Username is Incorrect</div>
-                        }
+                    @if (Convert.ToBoolean(Session["username-incorrect"]) == true)
+                    {
+                        <div style="color:red; text-align: left; margin-top: 15px; margin-bottom: -15px; margin-left: 35px"><i>Username is Incorrect</i></div>
+                    }
+
+                    <div class="wrap-input100 validate-input" data-validate="Enter password">
+                        <input class="input100" type="password" name="password" placeholder="Password">
+                        <span class="focus-input100" data-placeholder="&#xe80f;"></span>
                     </div>
 
-                    <div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
-                        <input class="input100" name="password" type="password" placeholder="Password">
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <span class="lnr lnr-lock"></span>
-                        </span>
-                    </div>
+                    @if (Convert.ToBoolean(Session["password-incorrect"]) == true)
+                    {
+                        <div style="color:red; text-align: left; margin-top: 15px; margin-bottom: -5px; margin-left: 35px"><i>Password is Incorrect</i></div>
+                    }
 
-                    <div class="wrap-input100">
-                        @if (Convert.ToBoolean(Session["password-incorrect"]) == true)
-                        {
-                            <div style="text-align:center; margin-top: -15px; margin-bottom: 25px" class="login-error">Password is Incorrect</div>
-                        }
-                    </div>
-
-                    <div class="contact100-form-checkbox m-l-4">
-                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-                        <label class="label-checkbox100" for="ckb1">
-                            Remember me
-                        </label>
-                    </div>
-
-                    <div class="container-login100-form-btn p-t-25">
+                    <div class="container-login100-form-btn m-t-32">
                         <button class="login100-form-btn">
                             Login
                         </button>
                     </div>
+
                 </form>
             </div>
         </div>
     </div>
+
+
+    <div id="dropDownSelect1"></div>
+
     <!--===============================================================================================-->
-    <script src="~/Content/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="~/LoginTemplate/vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
-    <script src="~/Content/vendor/bootstrap/js/popper.js"></script>
-    <script src="~/Content/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/LoginTemplate/vendor/animsition/js/animsition.min.js"></script>
     <!--===============================================================================================-->
-    <script src="~/Content/vendor/select2/select2.min.js"></script>
+    <script src="~/LoginTemplate/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/LoginTemplate/vendor/bootstrap/js/bootstrap.min.js"></script>
     <!--===============================================================================================-->
-    <script src="~/Scripts/js/main.js"></script>
+    <script src="~/LoginTemplate/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/LoginTemplate/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/LoginTemplate/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/LoginTemplate/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/LoginTemplate/js/main.js"></script>
 
 </body>
 </html>
