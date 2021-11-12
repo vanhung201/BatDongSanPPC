@@ -9,8 +9,9 @@ namespace QuanLyBDS.Areas.Admin.Controllers
 {
     public class AuthController : Controller
     {
-        // GET: Admin/Auth
         AD25Team19Entities model = new AD25Team19Entities();
+
+        // GET: Admin/Auth
         public ActionResult Login()
         {
             Session["username-incorrect"] = false;
@@ -22,7 +23,7 @@ namespace QuanLyBDS.Areas.Admin.Controllers
         public ActionResult Login(string username, string password)
         {
             var user = model.Accounts.FirstOrDefault(u => u.Username.Equals(username));
-            if(user != null)
+            if (user != null)
             {
                 if (user.Password.Equals(password))
                 {
