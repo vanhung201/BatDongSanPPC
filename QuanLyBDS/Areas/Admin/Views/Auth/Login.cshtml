@@ -6,82 +6,97 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>PPC | Log in</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Font Awesome -->
-    <link href="~/Content/all.min.css" rel="stylesheet" />
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- icheck bootstrap -->
-    <link href="~/Content/icheck-bootstrap.min.css" rel="stylesheet" />
-    <!-- Theme style -->
-    <link href="~/Content/adminlte.min.css" rel="stylesheet" />
-    <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <link href="~/Content/Site.css" rel="stylesheet" />
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>PPC ADMIN - LOGIN</title>
+    <link rel="shortcut icon" type="image/png" href="~/Images/PPCLogo-128-128.png">
+    <link href="~/Content/account.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/Images/PPCLogo-128-128.png" />
+    <!--===============================================================================================-->
+    <link href="~/Content/vendor/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/webfonts/fonts/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/webfonts/fonts/Linearicons-Free-v1.0.0/icon-font.min.css" type="text/css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/Content/vendor/animate/animate.css" type="text/css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/Content/vendor/css-hamburgers/hamburgers.min.css" type="text/css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/Content/vendor/select2/select2.min.css" type="text/css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/Content/css/util.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/css/main.css" type="text/css" rel="stylesheet" />
+    <!--===============================================================================================-->
 </head>
-<body class="hold-transition login-page">
-    <div class="login-box">
-        <div class="login-logo">
-            <b>Website PPC Admin</b>
-        </div>
-        <!-- /.login-logo -->
-        <div class="card">
-            <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+<body>
+    <!--------account-page--------->
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
+                <form class="login100-form validate-form" action="@Url.Action("Login")" method="POST">
+                    <span class="login100-form-title p-b-55">
+                        PPC Admin Login
+                    </span>
 
-                <form action="@Url.Action("Login")" method="post">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Username" name="username">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
-                            </div>
-                        </div>
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="Username is required">
+                        <input class="input100" name="username" type="text" placeholder="Username">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <span class="lnr lnr-user"></span>
+                        </span>
                     </div>
 
-                    @if (Convert.ToBoolean(Session["username-incorrect"]) == true)
-                    {
-                        <p style="color:red">Username Incorrect</p>
-                    }
-
-                    <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password" name="password">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
+                    <div class="wrap-input100">
+                        @if (Convert.ToBoolean(Session["username-incorrect"]) == true)
+                        {
+                            <div style="text-align:center; margin-top: -15px; margin-bottom: 2px" class="login-error">Username is Incorrect</div>
+                        }
                     </div>
 
-                    @if (Convert.ToBoolean(Session["password-incorrect"]) == true)
-                    {
-                        <p style="color:red">Password Incorrect</p>
-                    }
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
+                        <input class="input100" name="password" type="password" placeholder="Password">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <span class="lnr lnr-lock"></span>
+                        </span>
+                    </div>
 
-                    <div class="row">
-                        <!-- /.col -->
-                        <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-                        </div>
-                        <!-- /.col -->
+                    <div class="wrap-input100">
+                        @if (Convert.ToBoolean(Session["password-incorrect"]) == true)
+                        {
+                            <div style="text-align:center; margin-top: -15px; margin-bottom: 25px" class="login-error">Password is Incorrect</div>
+                        }
+                    </div>
+
+                    <div class="contact100-form-checkbox m-l-4">
+                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                        <label class="label-checkbox100" for="ckb1">
+                            Remember me
+                        </label>
+                    </div>
+
+                    <div class="container-login100-form-btn p-t-25">
+                        <button class="login100-form-btn">
+                            Login
+                        </button>
                     </div>
                 </form>
             </div>
-            <!-- /.login-card-body -->
         </div>
     </div>
-    <!-- /.login-box -->
-    <!-- jQuery -->
-    <script src="~/Scripts/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="~/Scripts/adminlte.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/Content/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Scripts/js/main.js"></script>
 
 </body>
 </html>
