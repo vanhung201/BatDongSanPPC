@@ -1,0 +1,71 @@
+﻿@model IEnumerable<QuanLyBDS.Models.Installment_Contract>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>LIST OF INSTALLMENT CONTRACT</h2>
+
+<p>
+    <button class="btn btn-warning">@Html.ActionLink("Create New", "Create", null, new { @class = "colorbtn" })</button>
+</p>
+
+<div class="card-body">
+    <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Customer Name</th>
+                <th>Date Of Contract</th>
+                <th>Price</th>
+                <th>Deposit</th>
+                <th>Loan Amount</th>
+                <th>Taken</th>
+                <th>Remain</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Installment_Contract_Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date_Of_Contract)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Deposit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Loan_Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Taken)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remain)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Property.Property_Code)
+                </td>
+                <td>
+                    <button class="btn btn-primary mr-3">@Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "colorbtn" })</button>
+                    <button class="btn btn-success">@Html.ActionLink("Print", "Print", new { id = item.ID }, new { @class = "colorbtn" })</button>
+                </td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

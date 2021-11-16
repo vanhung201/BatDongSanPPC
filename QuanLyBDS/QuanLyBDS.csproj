@@ -130,6 +130,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AuthController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Full_ContractController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Installment_ContractController.cs" />
     <Compile Include="Areas\Admin\Controllers\PropertyAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\PropertyTypeAdminController.cs" />
     <Compile Include="Areas\Admin\Middleware\LoginVerification.cs" />
@@ -205,10 +207,12 @@
     <Content Include="Content\icheck-bootstrap.min.css" />
     <Content Include="Content\jqvmap.min.css" />
     <Content Include="Content\OverlayScrollbars.min.css" />
+    <Content Include="Content\style.css" />
     <Content Include="Content\summernote-bs4.css" />
     <Content Include="Content\tempusdominus-bootstrap-4.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Images\avatar5.png" />
+    <Content Include="Images\logo.png" />
     <Content Include="Images\ppc-background.jpg" />
     <Content Include="Images\ppc0001.jpg" />
     <Content Include="Images\ppc0002.jpg" />
@@ -389,6 +393,10 @@
     <Content Include="LoginTemplate\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="LoginTemplate\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="LoginTemplate\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Areas\Admin\Views\Full_Contract\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Full_Contract\Print.cshtml" />
+    <Content Include="Areas\Admin\Views\Installment_Contract\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Installment_Contract\Print.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Chart.min.js" />
     <Content Include="Scripts\dashboard.js" />
@@ -432,6 +440,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="webfonts\SourceSansPro-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
